@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react'
+import Child from './components/Child'
+import Child2 from './components/Child2'
 
-function App() {
+
+const App = () => {
+  const msg = 'Hello Roshan';
+
+  const [msg2, setMsg2] = useState('');
+  const handle = (msg) => setMsg2(msg);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+     <h1>Parent</h1>
+     <Child msg={msg} />
+     <Child2 sendMsg={handle} />
+     <p>message from child2:{msg2}</p>
+    </>
+  )
 }
 
-export default App;
+export default App
